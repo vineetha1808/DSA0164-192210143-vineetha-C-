@@ -1,0 +1,19 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+	int num,cbrt_num;
+	cout<<"enter a number:";
+	cin>>num;
+	cbrt_num=cbrt(num);
+	if(num<0)
+	{
+		cout<<"cube root of a number is not real"<<cbrt(num);
+	}
+	else
+	{
+		cout<<"cube root of a number is:"<<cbrt(num);
+	}
+	return 0;
+}
