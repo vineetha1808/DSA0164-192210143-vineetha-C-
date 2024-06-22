@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+double calculateTax(double income) {
+    if (income <= 60000) {
+        return 0;
+    } else if (income > 60000 && income <= 150000) {
+        return income * 0.05;
+    } else if (income > 150000 && income <= 500000) {
+        return income * 0.1;
+    } else {
+        return income * 0.15;
+    }
+}
+
+int main() {
+    double income;
+    cout << "Enter the taxable income: ";
+    cin >> income;
+
+    double tax = calculateTax(income);
+    cout << "The calculated tax is: " << tax << endl;
+
+    return 0;
+}
