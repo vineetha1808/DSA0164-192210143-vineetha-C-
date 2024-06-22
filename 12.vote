@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int age,voting_age,years_left;
+	cout<<"enter the voting_age:";
+	cin>>voting_age;
+	cout<<"enter the person age:";
+	cin>>age;
+	if(age>=voting_age)
+	{
+		cout<<"eligible for vote";
+	}
+	else
+	{
+		years_left=voting_age-age;
+		cout<<"years left="<<years_left;
+	}
+	return 0;
+}
