@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+double calculatesimpleinterest(double principal,double rate,double time)
+{
+	return(principal*rate*time)/100;
+}
+double getrateofinterest(int age)
+{
+	if(age>=60)
+	{
+		return 12.0;
+	}
+	else
+	{
+		return 10.0;
+	}
+}
+int main()
+{
+	double principal,time;
+	int age;
+	cout<<"enter the principal amount:";
+	cin>>principal;
+	cout<<"enter the time:";
+	cin>>time;
+	cout<<"enter age:";
+	cin>>age;
+	double rate=getrateofinterest(age);
+	double interest=calculatesimpleinterest(principal,rate,time);
+	cout<<"simple interest is:"<<interest;
+	return 0;
+}
