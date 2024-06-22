@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    const int numStudents = 10;
+    string names[numStudents];
+    int regNos[numStudents];
+    float mark1[numStudents], mark2[numStudents], mark3[numStudents];
+    float averages[numStudents];
+    char grades[numStudents];
+    
+    // Reading student information
+    for (int i = 0; i < numStudents; i++) {
+        cout << "Enter the name of student " << i + 1 << ": ";
+        cin >> names[i];
+        cout << "Enter the registration number of student " << i + 1 << ": ";
+        cin >> regNos[i];
+        cout << "Enter the mark1 of student " << i + 1 << ": ";
+        cin >> mark1[i];
+        cout << "Enter the mark2 of student " << i + 1 << ": ";
+        cin >> mark2[i];
+        cout << "Enter the mark3 of student " << i + 1 << ": ";
+        cin >> mark3[i];
+    }
+
+    // Calculating averages and grades
+    for (int i = 0; i < numStudents; i++) {
+        averages[i] = (mark1[i] + mark2[i] + mark3[i]) / 3.0;
+        
+        if (averages[i] > 90) {
+            grades[i] = 'S';
+        } else if (averages[i] > 80) {
+            grades[i] = 'A';
+        } else if (averages[i] > 70) {
+            grades[i] = 'C';
+        } else if (averages[i] > 60) {
+            grades[i] = 'D';
+        } else if (averages[i] > 50) {
+            grades[i] = 'E';
+        } else {
+            grades[i] = 'F';
+        }
+    }
+
+    // Displaying the information
+    cout << "\nStudent Records:\n";
+    cout << "Name\tRegNo\tMark1\tMark2\tMark3\tAverage\tGrade\n";
+    for (int i = 0; i < numStudents; i++) {
+        cout << names[i] << "\t" << regNos[i] << "\t" << mark1[i] << "\t" 
+             << mark2[i] << "\t" << mark3[i] << "\t" << averages[i] << "\t" << grades[i] << "\n";
+    }
+
+    return 0;
+}
