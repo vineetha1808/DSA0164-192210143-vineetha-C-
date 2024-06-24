@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+class CubeCalculator {
+public:
+    CubeCalculator(int n) {
+        for (int i = 1; i <= n; i++) {
+            cout << "Cube of " << i << " is: " << (i * i * i) << endl;
+        }
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter an integer: ";
+    cin >> n;
+
+    // Create an object using the parameterized constructor
+    CubeCalculator cubeCalc(n);
+
+    return 0;
+}
