@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class DecimalToBinary {
+    int number;
+public:
+    // Constructor to initialize the number
+    DecimalToBinary(int num) : number(num) {
+        convertToBinary();
+    }
+
+    // Function to convert decimal to binary and print it
+    void convertToBinary() {
+        if (number == 0) {
+            cout << "0";
+            return;
+        }
+
+        int num = number;
+        int binary = 0;
+        int place = 1;
+
+        while (num > 0) {
+            int remainder = num % 2;
+            binary += remainder * place;
+            num /= 2;
+            place *= 10;
+        }
+
+        cout << binary;
+    }
+};
+
+int main() {
+    int decimalNumber;
+    cout << "Enter a decimal number: ";
+    cin >> decimalNumber;
+
+    cout << "Binary equivalent: ";
+    DecimalToBinary dtb(decimalNumber);
+    cout << endl;
+
+    return 0;
+}
