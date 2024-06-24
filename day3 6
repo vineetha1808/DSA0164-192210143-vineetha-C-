@@ -1,0 +1,56 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Shape {
+    double area;
+public:
+    // Constructor for Circle
+    Shape(double radius) {
+        area = M_PI * radius * radius;
+    }
+
+    // Constructor for Rectangle
+    Shape(double length, double width) {
+        area = length * width;
+    }
+
+    // Constructor for Triangle
+    Shape(double base, double height, bool isTriangle) {
+        if (isTriangle) {
+            area = 0.5 * base * height;
+        }
+    }
+
+    // Function to display the area
+    void displayArea() {
+        cout << "Area is: " << area << endl;
+    }
+};
+
+int main() {
+    double radius, length, width, base, height;
+
+    // Circle
+    cout << "Enter the radius of the circle: ";
+    cin >> radius;
+    Shape circle(radius);
+    cout << "Circle: ";
+    circle.displayArea();
+
+    // Rectangle
+    cout << "Enter the length and width of the rectangle: ";
+    cin >> length >> width;
+    Shape rectangle(length, width);
+    cout << "Rectangle: ";
+    rectangle.displayArea();
+
+    // Triangle
+    cout << "Enter the base and height of the triangle: ";
+    cin >> base >> height;
+    Shape triangle(base, height, true);
+    cout << "Triangle: ";
+    triangle.displayArea();
+
+    return 0;
+}
