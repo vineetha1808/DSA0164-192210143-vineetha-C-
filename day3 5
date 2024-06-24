@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class ReverseNumber {
+private:
+    int originalNumber;
+    int reversedNumber;
+
+public:
+    // Default constructor
+    ReverseNumber() {}
+
+    // Constructor with parameter to initialize originalNumber
+    ReverseNumber(int num) : originalNumber(num) {
+        reversedNumber = 0;
+        int remainder;
+        while (num != 0) {
+            remainder = num % 10;
+            reversedNumber = reversedNumber * 10 + remainder;
+            num /= 10;
+        }
+    }
+
+    // Method to display reversed number
+    void displayReversed() {
+        cout << "Original number: " << originalNumber << endl;
+        cout << "Reversed number: " << reversedNumber << endl;
+    }
+};
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    // Create an object using the parameterized constructor
+    ReverseNumber reverseNum(num);
+
+    // Display the reversed number
+    reverseNum.displayReversed();
+
+    return 0;
+}
