@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Shape {
+    double volume;
+public:
+    // Constructor for Cube
+    Shape(double side) {
+        volume = side * side * side;
+    }
+
+    // Constructor for Cylinder
+    Shape(double radius, double height) {
+        volume = M_PI * radius * radius * height;
+    }
+
+    // Function to display the volume
+    void displayVolume() {
+        cout << "Volume is: " << volume << endl;
+    }
+};
+
+int main() {
+    double side, radius, height;
+
+    // Cube
+    cout << "Enter the side length of the cube: ";
+    cin >> side;
+    Shape cube(side);
+    cout << "Cube: ";
+    cube.displayVolume();
+
+    // Cylinder
+    cout << "Enter the radius and height of the cylinder: ";
+    cin >> radius >> height;
+    Shape cylinder(radius, height);
+    cout << "Cylinder: ";
+    cylinder.displayVolume();
+
+    return 0;
+}
