@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+class SeriesSum {
+private:
+    int sum;
+
+public:
+    // Constructor with default initialization
+    SeriesSum(int n = 0) {
+        sum = 0;
+        for (int i = 1; i <= n; ++i) {
+            sum += i;
+        }
+        cout << "The sum of the series is: " << sum << endl;
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter an integer: ";
+    cin >> n;
+
+    // Create an object using the parameterized constructor
+    SeriesSum seriesSum(n);
+
+    return 0;
+}
