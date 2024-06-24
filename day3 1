@@ -1,0 +1,70 @@
+[12:30 pm, 24/6/2024] Poojitha🥰: #include <iostream>
+using namespace std;
+
+class Cube {
+    int number;
+    int cubeValue;
+public:
+    // Constructor to initialize the number and calculate its cube
+    Cube(int num) {
+        number = num;
+        cubeValue = number * number * number;
+    }
+
+    // Destructor to display the cube value
+    ~Cube() {
+        cout << "Cube of " << number << " is " << cubeValue << endl;
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+
+    if (n < 1) {
+        cout << "Please enter a positive integer greater than 0." << endl;
+        return 1;
+    }
+
+    for (int i = 1; i <= n; ++i) {
+        Cube obj(i);
+    }
+
+    return 0;
+}
+[2:41 pm, 24/6/2024] Poojitha🥰: #include <iostream>
+using namespace std;
+
+class Cube {
+    int number;
+    int cubeValue;
+public:
+    // Constructor to initialize the number and calculate its cube
+    Cube(int num) {
+        number = num;
+        cubeValue = number * number * number;
+    }
+
+    // Destructor to display the cube value
+    ~Cube() {
+        cout << "Cube of " << number << " is " << cubeValue << endl;
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter a positive integer: ";
+    cin >> n;
+
+    if (n < 1) {
+        cout << "Please enter a positive integer greater than 0." << endl;
+        return 1;
+    }
+
+    for (int i = 1; i <= n; ++i) {
+        Cube obj(i);
+    }
+
+    return 0;
+}
