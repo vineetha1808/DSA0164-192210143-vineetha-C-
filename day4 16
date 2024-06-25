@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+// Base class for Account
+class Account {
+protected:
+    string accountNumber;
+    double balance;
+
+public:
+    Account(string accNum, double bal) : accountNumber(accNum), balance(bal) {}
+
+    virtual void deposit(double amount) {
+        balance += amount;
+        cout << "Deposited: $" << amount << endl;
+    }
+
+    virtual void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            cout << "Withdrawn: $" << amount << endl;
+        } else {
+            cout << "Insufficient balance!" << endl;
+        }
+    }
+
+    virtual void displayBalance() {
+        cout << "Account Number: " << accountNumber << ", Balance: $" << balance << endl;
+    }
+};
+
+// Base class for Customer
+class Customer {
+protected:
+    string name;
+    string address;
+
+public:
+    Customer(string n, string addr) : name(n), address(addr) {}
+
+    void displayInfo() {
+        cout << "Name: " << name << ", Address: " << address << endl;
+    }
+};
+
+// Derived class BankAccount inheriting from Account and Customer
+class BankAccount : public Account, public Customer {
+public:
+    BankAccount(string accNum, double bal, string n, string addr)
+        : Account(accNum, bal), Customer(n, addr) {}
+
+    void displayAllInfo() {
+        displayInfo();
+        displayBalance();
+    }
+};
+
+int main() {
+    // Create an instance of BankAccount
+    BankAccount account("ACC123456", 5000.0, "John Doe", "123 Main St");
+
+    // Display customer and account information
+    account.displayAllInfo();
+
+    // Perform transactions
+    account.deposit(1000.0);
+    account.withdraw(2000.0);
+
+    // Display updated balance
+    account.displayBalance();
+
+    return 0;
+}
