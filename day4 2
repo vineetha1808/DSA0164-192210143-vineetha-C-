@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+// Base class Person
+class Person {
+public:
+    string name;
+    int age;
+
+    void setDetails(string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void displayDetails() const {
+        cout << "Name: " << name << "\nAge: " << age << endl;
+    }
+};
+
+// Derived class Student with private inheritance from Person
+class Student : private Person {
+public:
+    int studentID;
+
+    void setStudentDetails(string n, int a, int id) {
+        setDetails(n, a); // Accessing base class method
+        studentID = id;
+    }
+
+    void displayStudentDetails() const {
+        displayDetails(); // Accessing base class method
+        cout << "Student ID: " << studentID << endl;
+    }
+};
+
+int main() {
+    Student student;
+
+    // Set and display student details
+    student.setStudentDetails("Alice", 21, 12345);
+    cout << "Student Details:\n";
+    student.displayStudentDetails();
+
+    return 0;
+}
