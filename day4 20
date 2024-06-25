@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class Patient
+class Patient {
+protected:
+    string name;
+    int age;
+    string gender;
+
+public:
+    // Constructor to initialize patient details
+    Patient(string n, int a, string g) : name(n), age(a), gender(g) {}
+
+    // Method to display patient details
+    void displayDetails() const {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Gender: " << gender << endl;
+    }
+};
+
+// Derived class InPatient inheriting from Patient
+class InPatient : public Patient {
+private:
+    int roomNumber;
+    string admissionDate;
+
+public:
+    // Constructor to initialize in-patient details
+    InPatient(string n, int a, string g, int room, string date)
+        : Patient(n, a, g), roomNumber(room), admissionDate(date) {}
+
+    // Method to display in-patient details
+    void displayInPatientDetails() const {
+        displayDetails(); // Call base class method to display patient details
+        cout << "Room Number: " << roomNumber << endl;
+        cout << "Admission Date: " << admissionDate << endl;
+    }
+};
+
+int main() {
+    // Create an instance of InPatient
+    InPatient patient("John Doe", 45, "Male", 101, "2024-06-25");
+
+    // Display patient details
+    cout << "Patient Details:" << endl;
+    patient.displayInPatientDetails();
+
+    return 0;
+}
