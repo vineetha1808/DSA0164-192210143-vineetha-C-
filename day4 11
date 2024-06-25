@@ -1,0 +1,63 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Base class Shape
+class Shape {
+public:
+    virtual void display() const = 0; // Pure virtual function for display
+};
+
+// Derived class Circle inheriting from Shape
+class Circle : public Shape {
+protected:
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    double area() const {
+        return M_PI * radius * radius;
+    }
+    void display() const override {
+        cout << "Area of Circle: " << area() << endl;
+    }
+};
+
+// Derived class Rectangle inheriting from Circle
+class Rectangle : public Circle {
+protected:
+    double length;
+    double width;
+public:
+    Rectangle(double l, double w, double r) : Circle(r), length(l), width(w) {}
+    double area() const {
+        return length * width;
+    }
+    void display() const override {
+        Circle::display();
+        cout << "Area of Rectangle: " << area() << endl;
+    }
+};
+
+// Derived class Cylinder inheriting from Rectangle
+class Cylinder : public Rectangle {
+private:
+    double height;
+public:
+    Cylinder(double l, double w, double r, double h) : Rectangle(l, w, r), height(h) {}
+    double volume() const {
+        return M_PI * radius * radius * height;
+    }
+    void display() const override {
+        Rectangle::display();
+        cout << "Volume of Cylinder: " << volume() << endl;
+    }
+};
+
+int main() {
+    double radius = 3.0, length = 4.0, width = 5.0, height = 6.0;
+
+    Cylinder cyl(length, width, radius, height);
+    cyl.display();
+
+    return 0;
+}
