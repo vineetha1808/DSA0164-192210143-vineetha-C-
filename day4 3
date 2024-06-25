@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int var = 42; // Declare an integer variable and initialize it
+    cout << "Value of var: " << var << endl;
+    cout << "Address of var: " << &var << endl; // Print the address of the variable
+    return 0;
+}
