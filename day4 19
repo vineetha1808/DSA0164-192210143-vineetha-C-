@@ -1,0 +1,88 @@
+#include <iostream>
+using namespace std;
+
+// Base class Employee
+class Employee {
+protected:
+    string name;
+    int employeeId;
+
+public:
+    // Constructor to initialize employee details
+    Employee(string n, int id) : name(n), employeeId(id) {}
+
+    // Method to display employee details
+    void displayDetails() const {
+        cout << "Employee Name: " << name << ", Employee ID: " << employeeId << endl;
+    }
+};
+
+// Base class Salary
+class Salary {
+protected:
+    double basicSalary;
+
+public:
+    // Constructor to initialize basic salary
+    Salary(double salary) : basicSalary(salary) {}
+
+    // Method to calculate and display salary details
+    virtual void calculateSalary() {
+        cout << "Basic Salary: $" << basicSalary << endl;
+    }
+};
+
+// Derived class RegularEmployee inheriting from Employee and Salary
+class RegularEmployee : public Employee, public Salary {
+protected:
+    double allowance;
+
+public:
+    // Constructor to initialize regular employee details
+    RegularEmployee(string n, int id, double salary, double allow)
+        : Employee(n, id), Salary(salary), allowance(allow) {}
+
+    // Override calculateSalary method to include allowance
+    void calculateSalary() override {
+        double totalSalary = basicSalary + allowance;
+        cout << "Regular Employee Details:" << endl;
+        displayDetails();
+        Salary::calculateSalary(); // Call base class method
+        cout << "Allowance: $" << allowance << endl;
+        cout << "Total Salary: $" << totalSalary << endl;
+    }
+};
+
+// Derived class ContractEmployee inheriting from Employee and Salary
+class ContractEmployee : public Employee, public Salary {
+protected:
+    int contractDuration; // in months
+
+public:
+    // Constructor to initialize contract employee details
+    ContractEmployee(string n, int id, double salary, int duration)
+        : Employee(n, id), Salary(salary), contractDuration(duration) {}
+
+    // Override calculateSalary method for contract employees
+    void calculateSalary() override {
+        double totalSalary = basicSalary * contractDuration;
+        cout << "Contract Employee Details:" << endl;
+        displayDetails();
+        Salary::calculateSalary(); // Call base class method
+        cout << "Contract Duration: " << contractDuration << " months" << endl;
+        cout << "Total Salary: $" << totalSalary << endl;
+    }
+};
+
+int main() {
+    // Create objects of RegularEmployee and ContractEmployee
+    RegularEmployee emp1("John Doe", 1001, 50000.0, 3000.0);
+    ContractEmployee emp2("Jane Smith", 1002, 2500.0, 6);
+
+    // Calculate and display salary details
+    emp1.calculateSalary();
+    cout << endl;
+    emp2.calculateSalary();
+
+    return 0;
+}
