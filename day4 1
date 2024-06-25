@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+// Base class Person
+class Person {
+public:
+    string name;
+    int age;
+
+    void setDetails(string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void displayDetails() const {
+        cout << "Name: " << name << "\nAge: " << age << endl;
+    }
+};
+
+// Derived class Student inheriting from Person
+class Student : public Person {
+public:
+    int studentID;
+
+    void setStudentID(int id) {
+        studentID = id;
+    }
+
+    void displayStudentDetails() const {
+        displayDetails();
+        cout << "Student ID: " << studentID << endl;
+    }
+};
+
+int main() {
+    Student student;
+
+    // Read student details
+    string name;
+    int age, studentID;
+
+    cout << "Enter name: ";
+    cin >> name;
+    cout << "Enter age: ";
+    cin >> age;
+    cout << "Enter student ID: ";
+    cin >> studentID;
+
+    // Set student details
+    student.setDetails(name, age);
+    student.setStudentID(studentID);
+
+    // Print student details
+    cout << "\nStudent Details:" << endl;
+    student.displayStudentDetails();
+
+    return 0;
+}
