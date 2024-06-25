@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Abstract base class Shape
+class Shape {
+public:
+    virtual double area() const = 0; // Pure virtual function
+};
+
+// Derived class Square inheriting from Shape
+class Square : public Shape {
+private:
+    double side;
+public:
+    Square(double s) : side(s) {}
+    double area() const override {
+        return side * side;
+    }
+};
+
+// Derived class Circle inheriting from Shape
+class Circle : public Shape {
+private:
+    double radius;
+public:
+    Circle(double r) : radius(r) {}
+    double area() const override {
+        return M_PI * radius * radius;
+    }
+};
+
+int main() {
+    Square sq(4.0);
+    Circle cr(3.0);
+
+    cout << "Area of Square: " << sq.area() << endl;
+    cout << "Area of Circle: " << cr.area() << endl;
+
+    return 0;
+}
