@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+// Base class Person
+class Person {
+public:
+    string name;
+
+    void setName(string n) {
+        name = n;
+    }
+
+    void displayPerson() const {
+        cout << "Name: " << name << endl;
+    }
+};
+
+// Base class Employee
+class Employee {
+public:
+    int employeeID;
+
+    void setEmployeeID(int id) {
+        employeeID = id;
+    }
+
+    void displayEmployee() const {
+        cout << "Employee ID: " << employeeID << endl;
+    }
+};
+
+// Derived class Manager inheriting from Person and Employee
+class Manager : public Person, public Employee {
+public:
+    void displayManager() const {
+        displayPerson();
+        displayEmployee();
+    }
+};
+
+int main() {
+    Manager mgr;
+
+    // Set manager details
+    mgr.setName("Alice");
+    mgr.setEmployeeID(101);
+
+    // Display manager details
+    cout << "Manager Details:" << endl;
+    mgr.displayManager();
+
+    return 0;
+}
