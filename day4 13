@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+// Define the Employee class
+class Employee {
+private:
+    string name;
+    int id;
+    double salary;
+
+public:
+    // Constructor to initialize employee details
+    Employee(string n, int i, double s) : name(n), id(i), salary(s) {}
+
+    // Method to display employee details
+    void display() const {
+        cout << "Name: " << name << ", ID: " << id << ", Salary: $" << salary << endl;
+    }
+};
+
+int main() {
+    const int numEmployees = 3; // Number of employees
+    Employee employees[numEmployees] = {
+        Employee("John Doe", 101, 50000.0),
+        Employee("Jane Smith", 102, 60000.0),
+        Employee("Mike Johnson", 103, 55000.0)
+    };
+
+    // Display details of all employees using a loop
+    for (int i = 0; i < numEmployees; ++i) {
+        employees[i].display();
+    }
+
+    return 0;
+}
