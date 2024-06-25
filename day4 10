@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+private:
+    int length;
+    int width;
+
+public:
+    // Constructor to initialize the Rectangle object
+    Rectangle(int l, int w) : length(l), width(w) {}
+
+    // Method to display dimensions
+    void display() const {
+        cout << "Length: " << length << ", Width: " << width << endl;
+    }
+};
+
+int main() {
+    Rectangle rect(10, 5);   // Create a Rectangle object
+    Rectangle* ptr = &rect;  // Pointer to the Rectangle object
+
+    // Use the pointer to call the display method
+    ptr->display();
+
+    return 0;
+}
